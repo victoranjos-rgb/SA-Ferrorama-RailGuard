@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+:root {
+    --textoEscuro: #435266;
+    --fundo-claro: #CCDAFF;
+    --fundo-escuro: #272C33;
+    --texto-claro: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body{
+    background-color: var(--fundo-escuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal */
+.login{
+    width: 800px;
+    height: 500px;
+    background-color: #2c3138;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+/* Logo */
+.logo{
+    width: 45%;
+}
+
+.logo img{
+    width: 100%;
+    max-width: 320px;
+}
+
+/* Área do formulário */
+.formulario{
+    width: 40%;
+    color: white;
+}
+
+.titulo h2{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-family: Georgia, serif;
+}
+
+.email,
+.senha{
+    margin-bottom: 20px;
+}
+
+.email input,
+.senha input{
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #435266;
+    padding: 10px 0;
+    color: white;
+    font-size: 20px;
+    outline: none;
+}
+
+.email input::placeholder,
+.senha input::placeholder{
+    color: #d9d9d9;
+}
+
+.esqueceuSenha{
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.esqueceuSenha button{
+    background: none;
+    border: none;
+    color: #2d7edb;
+    cursor: pointer;
+}
+
+.termos{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.termos input{
+    width: 18px;
+    height: 18px;
+}
+
+.cadastrar{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.cadastrar button{
+    background: none;
+    border: none;
+    color: #bdbdbd;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.loginBtn button{
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 15px;
+    background-color: #3b414b;
+    color: white;
+    font-size: 32px;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.loginBtn button:hover{
+    background-color: #4a5360;
+}
