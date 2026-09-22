@@ -1,7 +1,11 @@
 <?php
 // Migração desenvolvida com auxílio de IA (OpenAI Codex).
-if(PHP_SAPI!=='cli'){http_response_code(403);exit('Execute somente pelo terminal.');}require_once __DIR__.'/conexao.php';
-$sql=<<<'SQL'
+if (PHP_SAPI !== 'cli') {
+    http_response_code(403);
+    exit('Execute somente pelo terminal.');
+}
+require_once __DIR__ . '/conexao.php';
+$sql = <<<'SQL'
 CREATE TABLE IF NOT EXISTS rotas (
  id_rota INT AUTO_INCREMENT PRIMARY KEY,
  codigo_rota VARCHAR(20) NOT NULL UNIQUE,
@@ -19,4 +23,8 @@ CREATE TABLE IF NOT EXISTS rotas (
  INDEX ix_rotas_status(status_rota), INDEX ix_rotas_partida(partida_prevista)
 )
 SQL;
-if(!$conexao->query($sql)){fwrite(STDERR,"Falha: {$conexao->error}\n");exit(1);}echo "Tabela rotas pronta.\n";
+if (!$conexao->query($sql)) {
+    fwrite(STDERR, "Falha: {$conexao->error}\n");
+    exit(1);
+}
+echo "Tabela rotas pronta.\n";

@@ -1,1 +1,94 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gestão de rotas | RailGuard</title><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="rotas.css"></head><body><main class="app"><section class="painel"><header><a class="voltar" href="../PaginaInicial/paginaInicialGestor.html">&#8592;</a><h1>Gestão de rotas</h1></header><!-- Figma adaptado com auxílio de IA. --><div class="grade"><section><form id="form" class="card form"><label>Código<input id="codigo_rota" required placeholder="LIN-232"></label><label>Nome<input id="nome_rota" required></label><label>Origem<select id="estacao_origem" required><option value="">Selecione</option></select></label><label>Destino<select id="estacao_destino" required><option value="">Selecione</option></select></label><input id="origem" type="hidden"><input id="destino" type="hidden"><input id="origem_lat" type="hidden"><input id="origem_lng" type="hidden"><input id="destino_lat" type="hidden"><input id="destino_lng" type="hidden"><label>Distância estimada (km)<input id="distancia_km" type="number" step=".01" readonly required></label><label>Trem<select id="id_trem"><option value="">Não atribuído</option></select></label><label>Partida<input id="partida_prevista" type="datetime-local" required></label><label>Chegada<input id="chegada_prevista" type="datetime-local" required></label><label>Status<select id="status_rota"><option value="programada">Programada</option><option value="em_andamento">Em andamento</option><option value="atrasada">Atrasada</option><option value="concluida">Concluída</option><option value="cancelada">Cancelada</option><option value="manutencao">Em manutenção</option></select></label><label class="largo">Aviso<textarea id="aviso" maxlength="255"></textarea></label><button class="largo">Cadastrar rota</button></form><p id="mensagem" role="status"></p></section><section><div id="mapa" aria-label="Mapa das rotas"></div><div id="lista" class="rotas"></div></section></div></section></main><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="rotas.js"></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gestão de rotas | RailGuard</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="rotas.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="painel">
+        <header>
+          <a class="voltar" href="../PaginaInicial/paginaInicialGestor.html">&#8592;</a
+          >
+          <h1>Gestão de rotas</h1>
+        </header>
+        <!-- Figma adaptado com auxílio de IA. -->
+        <div class="grade">
+          <section>
+            <form id="form" class="card form">
+              <label
+                >Código<input
+                  id="codigo_rota"
+                  required
+                  placeholder="LIN-232" /></label
+              ><label>Nome<input id="nome_rota" required /></label
+              ><label
+                >Origem<select id="estacao_origem" required>
+                  <option value="">Selecione</option>
+                </select></label
+              ><label
+                >Destino<select id="estacao_destino" required>
+                  <option value="">Selecione</option>
+                </select></label
+              ><input id="origem" type="hidden" /><input
+                id="destino"
+                type="hidden"
+              /><input id="origem_lat" type="hidden" /><input
+                id="origem_lng"
+                type="hidden"
+              /><input id="destino_lat" type="hidden" /><input
+                id="destino_lng"
+                type="hidden"
+              /><label
+                >Distância estimada (km)<input
+                  id="distancia_km"
+                  type="number"
+                  step=".01"
+                  readonly
+                  required /></label
+              ><label
+                >Trem<select id="id_trem">
+                  <option value="">Não atribuído</option>
+                </select></label
+              ><label
+                >Partida<input
+                  id="partida_prevista"
+                  type="datetime-local"
+                  required /></label
+              ><label
+                >Chegada<input
+                  id="chegada_prevista"
+                  type="datetime-local"
+                  required /></label
+              ><label
+                >Status<select id="status_rota">
+                  <option value="programada">Programada</option>
+                  <option value="em_andamento">Em andamento</option>
+                  <option value="atrasada">Atrasada</option>
+                  <option value="concluida">Concluída</option>
+                  <option value="cancelada">Cancelada</option>
+                  <option value="manutencao">Em manutenção</option>
+                </select></label
+              ><label class="largo"
+                >Aviso<textarea id="aviso" maxlength="255"></textarea></label
+              ><button class="largo">Cadastrar rota</button>
+            </form>
+            <p id="mensagem" role="status"></p>
+          </section>
+          <section>
+            <div id="mapa" aria-label="Mapa das rotas"></div>
+            <div id="lista" class="rotas"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="rotas.js"></script>
+  </body>
+</html>

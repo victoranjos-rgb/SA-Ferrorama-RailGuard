@@ -1,6 +1,9 @@
 <?php
 // Arquivo desenvolvido com auxílio de IA (OpenAI Codex).
-if (PHP_SAPI !== 'cli') { http_response_code(403); exit('Execute somente pelo terminal.'); }
+if (PHP_SAPI !== 'cli') {
+    http_response_code(403);
+    exit('Execute somente pelo terminal.');
+}
 require_once __DIR__ . '/conexao.php';
 $sql = <<<'SQL'
 CREATE TABLE IF NOT EXISTS manutencoes_trens (
@@ -19,5 +22,8 @@ CREATE TABLE IF NOT EXISTS manutencoes_trens (
  INDEX ix_manutencoes_trem (id_trem), INDEX ix_manutencoes_status (status_manutencao)
 )
 SQL;
-if (!$conexao->query($sql)) { fwrite(STDERR,"Falha: {$conexao->error}\n"); exit(1); }
+if (!$conexao->query($sql)) {
+    fwrite(STDERR, "Falha: {$conexao->error}\n");
+    exit(1);
+}
 echo "Tabela manutencoes_trens pronta.\n";
