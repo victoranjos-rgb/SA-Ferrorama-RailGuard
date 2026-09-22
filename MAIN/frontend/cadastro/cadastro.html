@@ -6,37 +6,41 @@
     <title>Cadastro</title>
 </head>
 <body>
+    <!-- Integração com o backend desenvolvida com auxílio de IA (OpenAI Codex). -->
     <div class="logo"><img src="../Imagens/Logo (1).png" alt="Logo"></div>
     <h1>Registrar</h1>
-    <div class = dados-cadastro>
+    <form id="form-cadastro-inicial" class="dados-cadastro">
 
         <div class="dados-cadastro">
-        <input type ="text" placeholder = "Nome">
+            <input type="text" id="nome" name="nome" placeholder="Nome" maxlength="120" required>
         </div>
             
         <div class="dados-cadastro">
-        <input type ="text" placeholder = "Usuário">
+            <input type="text" id="nome_usuario" name="nome_usuario" placeholder="Usuário" minlength="3" maxlength="50" required>
         </div>
 
         <div class="dados-cadastro">
-        <input type ="email" placeholder = "E-mail">
+            <input type="email" id="email" name="email" placeholder="E-mail" maxlength="150" required>
         </div>
 
         <div class="dados-cadastro">
-        <input type ="password" placeholder = "Senha">
+            <input type="password" id="senha" name="senha" placeholder="Senha" minlength="8" required>
         </div>
 
         <div class="dados-cadastro">
-        <input type ="password" placeholder = "Repetir Senha">
+            <input type="password" id="confirmacao_senha" name="confirmacao_senha" placeholder="Repetir senha" minlength="8" required>
         </div>
         
         <label class="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" id="aceitou_termos" required>
             Aceitar termos de uso
         </label>
-        <a href="finalizarCadastro.html">
-            <button>Finalizar Cadastro</button>
-        </a>
-    </div>
+
+        <p id="mensagem-cadastro" role="alert" aria-live="polite"></p>
+
+        <button type="submit">Finalizar Cadastro</button>
+    </form>
+
+    <script src="script.js"></script>
 </body>
 </html>

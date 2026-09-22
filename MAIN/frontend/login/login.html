@@ -7,40 +7,45 @@
     <link rel="stylesheet" href="sytle.css">
 </head>
 <body>
+    <!-- Integração com o backend desenvolvida com auxílio de IA (OpenAI Codex). -->
     <div class="login">
         <div class="logo"><img src="../Imagens/Logo (1).png" alt="Logo"></div>
-        <div class="formulario">
-        <div class="titulo"><h2>Login</h2></div>
+        <form id="form-login" class="formulario">
+            <div class="titulo"><h2>Login</h2></div>
 
-        <div class="email">
-            <input type="email" placeholder="Email">
-        </div>
+            <div class="email">
+                <input type="email" id="email" name="email" placeholder="Email" maxlength="150" autocomplete="email" required>
+            </div>
 
-        <div class="senha">
-            <input type="password" placeholder="Senha">
-        </div>
+            <div class="senha">
+                <input type="password" id="senha" name="senha" placeholder="Senha" autocomplete="current-password" required>
+            </div>
 
-        <a href="../EsqueceuSenha/esqueceuSenha.html">
             <div class="esqueceuSenha">
-                <button>Esqueceu Sua Senha</button>
+                <a href="../EsqueceuSenha/esqueceuSenha.html">
+                    <button type="button">Esqueceu Sua Senha</button>
+                </a>
             </div>
-        </a>
-        <div class="termos">
-            <input type="checkbox" id="aceito">
-            <label for="aceito">Aceitar termos de uso</label>
-        </div>
 
-        <a href="../cadastro/cadastro.html">
-            <div class="cadastrar">
-                <button>Cadastra-se Aqui</button>
+            <div class="termos">
+                <input type="checkbox" id="aceito" required>
+                <label for="aceito">Aceitar termos de uso</label>
             </div>
-        </a>
-        <a href="../PaginaInicial/paginaInicialGestor.html">
-        <div class="loginBtn">
-            <button>Login</button>
-        </div>
-        </a>
+
+            <div class="cadastrar">
+                <a href="../cadastro/cadastro.html">
+                    <button type="button">Cadastre-se aqui</button>
+                </a>
+            </div>
+
+            <p id="mensagem-login" role="alert" aria-live="polite"></p>
+
+            <div class="loginBtn">
+                <button type="submit">Login</button>
+            </div>
+        </form>
     </div>
-    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

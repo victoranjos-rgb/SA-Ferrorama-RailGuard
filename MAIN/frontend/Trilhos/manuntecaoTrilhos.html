@@ -1,14 +1,1 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manunteção nos Trilhos</title>
-</head>
-<body>
-    <input type="text" placeholder="Localização do trilho">
-    <input type="text" placeholder="Descrição do aconteceu">
-    <input type="text" placeholder="Tempo que ocorreu">
-    <button>Publicar Ocorrêcia</button>
-</body>
-</html>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manutenção dos trilhos | RailGuard</title><link rel="stylesheet" href="trilhos.css"></head><body><main><section class="painel"><header><a href="../PaginaInicial/paginaInicialGestor.html">&#8592;</a><h1>Manutenção dos trilhos</h1></header><!-- Figma adaptado com auxílio de IA. --><form id="form"><input type="hidden" id="id_manutencao_trilho"><label>Rota<select id="id_rota" required><option value="">Selecione</option></select></label><label>Local do trilho<input id="local_trilho" maxlength="150" required></label><label class="largo">Descrição<textarea id="descricao" maxlength="500" required></textarea></label><label>Início<input id="inicio" type="datetime-local" required></label><label>Fim<input id="fim" type="datetime-local"></label><label>Prioridade<select id="prioridade"><option value="baixa">Baixa</option><option value="media">Média</option><option value="alta">Alta</option><option value="critica">Crítica</option></select></label><label>Status<select id="status_manutencao"><option value="aberta">Aberta</option><option value="em_andamento">Em andamento</option><option value="concluida">Concluída</option><option value="cancelada">Cancelada</option></select></label><label>Responsável<input id="responsavel" maxlength="120" required></label><div class="botoes largo"><button>Salvar manutenção</button><button type="button" id="cancelar" hidden>Cancelar edição</button></div></form><p id="mensagem" role="status"></p><section><h2>Ocorrências e manutenções</h2><div class="tabela"><table><thead><tr><th>Rota/local</th><th>Início</th><th>Prioridade</th><th>Status</th><th>Ações</th></tr></thead><tbody id="lista"></tbody></table></div></section></section></main><script src="trilhos.js"></script></body></html>

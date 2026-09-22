@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprovação de acessos | RailGuard</title>
+    <link rel="stylesheet" href="aprovacoes.css">
+</head>
+<body>
+    <!-- Tela desenvolvida com auxílio de IA (OpenAI Codex). -->
+    <header class="cabecalho">
+        <div>
+            <p class="marca">RailGuard</p>
+            <h1>Aprovação de acessos</h1>
+        </div>
+        <a href="../PaginaInicial/paginaInicialGestor.html">Voltar</a>
+    </header>
+
+    <main>
+        <p id="mensagem" class="mensagem" role="alert" aria-live="polite">Carregando cadastros...</p>
+        <section id="lista-usuarios" class="lista-usuarios" aria-label="Cadastros pendentes"></section>
+    </main>
+
+    <template id="modelo-usuario">
+        <article class="cartao-usuario">
+            <div class="dados-usuario">
+                <h2 data-campo="nome"></h2>
+                <p><strong>Usuário:</strong> <span data-campo="nome_usuario"></span></p>
+                <p><strong>E-mail:</strong> <span data-campo="email"></span></p>
+                <p><strong>Local:</strong> <span data-campo="local"></span></p>
+                <p><strong>Cargo solicitado:</strong> <span data-campo="cargo_solicitado"></span></p>
+            </div>
+
+            <form class="form-analise">
+                <input type="hidden" name="id_usuario">
+
+                <label>
+                    Cargo confirmado
+                    <select name="cargo" required>
+                        <option value="membro">Membro</option>
+                        <option value="maquinista">Maquinista</option>
+                        <option value="gestor">Gestor</option>
+                    </select>
+                </label>
+
+                <label>
+                    Observação
+                    <textarea name="observacao" maxlength="255" rows="3"></textarea>
+                </label>
+
+                <div class="acoes">
+                    <button type="submit" name="decisao" value="aprovar" class="aprovar">Aprovar</button>
+                    <button type="submit" name="decisao" value="rejeitar" class="rejeitar">Rejeitar</button>
+                </div>
+            </form>
+        </article>
+    </template>
+
+    <script src="aprovacoes.js"></script>
+</body>
+</html>

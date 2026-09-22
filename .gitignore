@@ -1,0 +1,5 @@
+# Credenciais locais e certificados de conexao
+MAIN/backend/config.php
+MAIN/backend/certificados/*.pem
+MAIN/backend/certificado/*.pem
+

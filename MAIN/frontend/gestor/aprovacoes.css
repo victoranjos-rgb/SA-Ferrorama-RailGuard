@@ -1,0 +1,164 @@
+/* Estilos desenvolvidos com auxílio de IA (OpenAI Codex). */
+
+:root {
+    --fundo: #171c23;
+    --painel: #272e38;
+    --texto: #f7f9fc;
+    --secundario: #b9c4d4;
+    --azul: #4d83c4;
+    --verde: #2f9e66;
+    --vermelho: #c94d55;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, sans-serif;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px clamp(16px, 5vw, 64px);
+    background: #202731;
+}
+
+.marca {
+    margin: 0 0 4px;
+    color: #8db5e4;
+    font-weight: 700;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(24px, 4vw, 38px);
+}
+
+.cabecalho a {
+    color: var(--texto);
+}
+
+main {
+    width: min(1100px, calc(100% - 32px));
+    margin: 32px auto;
+}
+
+.mensagem {
+    min-height: 24px;
+    color: var(--secundario);
+}
+
+.mensagem[data-tipo="erro"] {
+    color: #ff9ba1;
+}
+
+.lista-usuarios {
+    display: grid;
+    gap: 20px;
+}
+
+.cartao-usuario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    padding: 24px;
+    border: 1px solid #3e4856;
+    border-radius: 14px;
+    background: var(--painel);
+}
+
+.dados-usuario h2 {
+    margin-top: 0;
+}
+
+.dados-usuario p {
+    overflow-wrap: anywhere;
+    color: var(--secundario);
+}
+
+.form-analise,
+.form-analise label {
+    display: grid;
+    gap: 8px;
+}
+
+.form-analise {
+    gap: 16px;
+}
+
+select,
+textarea,
+button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #556171;
+    border-radius: 8px;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.acoes {
+    display: flex;
+    gap: 12px;
+}
+
+button {
+    border: 0;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.aprovar {
+    background: var(--verde);
+}
+
+.rejeitar {
+    background: var(--vermelho);
+}
+
+/* Tablet: 401px a 800px. */
+@media (min-width: 401px) and (max-width: 800px) {
+    .cartao-usuario {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Celular: até 400px. */
+@media (max-width: 400px) {
+    .cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    main {
+        width: min(100% - 20px, 1100px);
+        margin-top: 20px;
+    }
+
+    .cartao-usuario {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .acoes {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,208 @@
+/* CSS adaptado do Figma com auxílio de IA (OpenAI Codex). */
+@import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700;800&family=Inter:wght@400;600;700&display=swap");
+:root {
+  --fundo: #181a1d;
+  --painel: #272c33;
+  --campo: #393e46;
+  --texto: #ededed;
+  --azul: #6e91bd;
+  --perigo: #b64b55;
+  --borda: #505761;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: Inter, Arial, sans-serif;
+}
+.aplicacao {
+  min-height: 100vh;
+  padding: clamp(12px, 3vw, 36px);
+  display: grid;
+  place-items: start center;
+}
+.painel {
+  width: min(1120px, 100%);
+  padding: clamp(18px, 4vw, 42px);
+  border: 2px solid #737982;
+  border-radius: 18px;
+  background: var(--painel);
+  box-shadow: 0 8px 28px #0008;
+}
+.cabecalho {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.marca {
+  margin: 0;
+  color: var(--azul);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+.cabecalho h1 {
+  margin: 2px 0 0;
+  font:
+    800 clamp(2rem, 5vw, 3.5rem)/1 "Abhaya Libre",
+    serif;
+}
+.voltar {
+  color: #fff;
+  text-decoration: none;
+  font-size: 3.4rem;
+  line-height: 0.7;
+}
+.nova,
+.formulario button,
+.acoes button {
+  border: 0;
+  border-radius: 14px;
+  background: var(--campo);
+  box-shadow: 0 4px 5px #0007;
+  color: var(--texto);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.nova {
+  padding: 14px 18px;
+}
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.formulario label {
+  display: grid;
+  gap: 7px;
+  font-family: "Abhaya Libre", serif;
+  font-size: 1.2rem;
+}
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  background: var(--campo);
+  color: var(--texto);
+  box-shadow: 0 4px 5px #0006;
+  font: inherit;
+}
+.formulario textarea {
+  min-height: 108px;
+  resize: vertical;
+}
+.largo {
+  grid-column: 1/-1;
+}
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.formulario button {
+  padding: 16px 28px;
+  font-size: 1rem;
+}
+.formulario .secundario {
+  background: #555d68;
+}
+#mensagem {
+  min-height: 24px;
+  text-align: center;
+  color: #c9dbef;
+}
+.tabela-container {
+  overflow: auto;
+  border-radius: 14px;
+}
+table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  background: #30353d;
+}
+th,
+td {
+  padding: 14px;
+  border-bottom: 1px solid var(--borda);
+  text-align: left;
+}
+th {
+  font-family: "Abhaya Libre", serif;
+  font-size: 1.15rem;
+}
+.status {
+  white-space: nowrap;
+}
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+.acoes button {
+  padding: 8px 10px;
+}
+.acoes .excluir {
+  background: var(--perigo);
+}
+@media (min-width: 401px) and (max-width: 800px) {
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+  .largo {
+    grid-column: auto;
+  }
+  .cabecalho {
+    grid-template-columns: auto 1fr;
+  }
+  .nova {
+    grid-column: 1/-1;
+    text-align: center;
+  }
+}
+@media (max-width: 400px) {
+  .aplicacao {
+    padding: 0;
+  }
+  .painel {
+    min-height: 100vh;
+    padding: 16px;
+    border: 0;
+    border-radius: 0;
+  }
+  .cabecalho {
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+  }
+  .cabecalho h1 {
+    font-size: 2rem;
+  }
+  .voltar {
+    font-size: 2.8rem;
+  }
+  .nova {
+    grid-column: 1/-1;
+    text-align: center;
+  }
+  .formulario {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .largo {
+    grid-column: auto;
+  }
+  .botoes {
+    flex-direction: column;
+  }
+  .botoes button {
+    width: 100%;
+  }
+}
