@@ -4,42 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
 </head>
 <body>
-    <!-- Integração com o backend desenvolvida com auxílio de IA (OpenAI Codex). -->
-    <div class="logo"><img src="../Imagens/Logo (1).png" alt="Logo"></div>
-    <h1>Registrar</h1>
-    <form id="form-cadastro-inicial" class="dados-cadastro">
+    <main class="page-shell">
+        <div class="logo"><img src="../Imagens/Logo (1).png" alt="Logo"></div>
+        <h1>Registrar</h1>
 
-        <div class="dados-cadastro">
-            <input type="text" id="nome" name="nome" placeholder="Nome" maxlength="120" required>
-        </div>
-            
-        <div class="dados-cadastro">
-            <input type="text" id="nome_usuario" name="nome_usuario" placeholder="Usuário" minlength="3" maxlength="50" required>
-        </div>
+        <form id="form-cadastro-inicial" class="dados-cadastro">
+            <div class="campo">
+                <input type="text" id="nome" name="nome" placeholder="Nome" maxlength="120" required>
+            </div>
 
-        <div class="dados-cadastro">
-            <input type="email" id="email" name="email" placeholder="E-mail" maxlength="150" required>
-        </div>
+            <div class="campo">
+                <input type="text" id="nome_usuario" name="nome_usuario" placeholder="Usuário" minlength="3" maxlength="50" required>
+            </div>
 
-        <div class="dados-cadastro">
-            <input type="password" id="senha" name="senha" placeholder="Senha" minlength="8" required>
-        </div>
+            <div class="campo">
+                <input type="email" id="email" name="email" placeholder="E-mail" maxlength="150" required>
+            </div>
 
-        <div class="dados-cadastro">
-            <input type="password" id="confirmacao_senha" name="confirmacao_senha" placeholder="Repetir senha" minlength="8" required>
-        </div>
-        
-        <label class="checkbox">
-            <input type="checkbox" id="aceitou_termos" required>
-            Aceitar termos de uso
-        </label>
+            <div class="campo">
+                <input type="password" id="senha" name="senha" placeholder="Senha" minlength="8" required>
+            </div>
 
-        <p id="mensagem-cadastro" role="alert" aria-live="polite"></p>
+            <div class="campo">
+                <input type="password" id="confirmacao_senha" name="confirmacao_senha" placeholder="Repetir senha" minlength="8" required>
+            </div>
 
-        <button type="submit">Finalizar Cadastro</button>
-    </form>
+            <label class="checkbox">
+                <input type="checkbox" id="aceitou_termos" required>
+                <span>Aceitar termos de uso</span>
+            </label>
+
+            <p id="mensagem-cadastro" role="alert" aria-live="polite"></p>
+
+            <button type="submit">Finalizar Cadastro</button>
+        </form>
+    </main>
 
     <script src="script.js"></script>
 </body>

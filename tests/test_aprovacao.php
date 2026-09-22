@@ -155,4 +155,3 @@ try {
 
 echo implode("\n", $resultados) . "\n";
 echo "Dados temporarios removidos.\n";
-

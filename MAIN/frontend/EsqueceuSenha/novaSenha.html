@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova senha</title>
+    <link rel="stylesheet" href="recuperarSenha.css">
 </head>
 <body>
-    <div class="novaSenha">
+    <main class="recuperar">
         <div class="logo"><img src="../Imagens/Logo (1).png" alt="Logo"></div>
         <div class="titulo"><h2>Recuperar senha</h2></div>
-        <div class="senha"><input type="password" placeholder="Senha"></div>
-        <div class="senha-confirmar"><input type="password" placeholder="Repita a senha"></div>
-        <a href="../login/login.html">
-            <div class="button-redefinir"><button>Redefinir senha</button></div>
-        </a>
-    </div>
+
+        <form id="form-nova-senha">
+            <div class="field">
+                <input type="password" id="nova-senha" placeholder="Nova senha" minlength="8" required>
+            </div>
+
+            <div class="field">
+                <input type="password" id="confirmar-senha" placeholder="Repita a senha" minlength="8" required>
+            </div>
+
+            <div class="form-row">
+                <button type="submit">Redefinir senha</button>
+            </div>
+
+            <p id="mensagem-reset" aria-live="polite"></p>
+        </form>
+
+        <a class="link-voltar" href="../login/login.html">Voltar para o login</a>
+    </main>
+
+    <script src="recuperarSenha.js"></script>
 </body>
 </html>

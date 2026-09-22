@@ -1,18 +1,4 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codigo de verificação</title>
-</head>
-<body>
-    <div class="codigoVerificao">
-        <div class="logo"><img src="../Imagens/Logo (1).png" alt="Logo"></div>
-        <div class="titulo"><h2>Recuperar senha</h2></div>
-        <div class="codigo"><input type="number" placeholder="Codigo de verificação"></div>
-        <a href="novaSenha.html">
-        <div class="button-confirmacao"><button>Verificar código</button></div>
-        </a>
-    </div>
-</body>
-</html>
+<html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Código de verificação | RailGuard</title><link rel="stylesheet" href="recuperarSenha.css"></head>
+<body><main class="recuperar"><div class="logo"><img src="../Imagens/Logo (1).png" alt="RailGuard"></div><div class="titulo"><h2>Verificar código</h2></div>
+<form id="form-codigo"><div class="field"><input id="codigo" inputmode="numeric" maxlength="6" placeholder="Código de verificação" required></div><div class="form-row"><button type="submit">Verificar código</button></div><p id="mensagem" aria-live="polite"></p></form><a class="link-voltar" href="esqueceuSenha.html">Voltar</a></main><script src="recuperarSenha.js"></script></body></html>

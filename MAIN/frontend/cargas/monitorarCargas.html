@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitorar Cargas</title>
+    <title>Monitorar cargas | RailGuard</title>
+    <link rel="stylesheet" href="cargas.css">
 </head>
 <body>
-    <input type="text" placeholder="ID da carga">
-    <input type="text" placeholder="Carga">
-    <input type="text" placeholder="Origem">
-    <input type="text" placeholder="Destino">
-    <input type="text" placeholder="Horário de chegada">
-</body>
+    <main class="operacao">
+        <a href="../PaginaInicial/paginaInicialGestor.html">← Voltar</a><a class="acao-principal" href="cadastrarCarga.html">Cadastrar nova carga</a>
+        <h1>Monitorar cargas</h1><p>Acompanhe as cargas cadastradas e seus status operacionais.</p>
+        <input id="busca" placeholder="Prefixo do trem, código, carga, origem ou destino">
+        <select id="status"><option value="">Todos os status</option><option value="aguardando">Aguardando</option><option value="em_transito">Em trânsito</option><option value="em_andamento">Em andamento</option><option value="programada">Programada</option><option value="entregue">Entregue</option><option value="atrasada">Atrasada</option><option value="concluida">Concluída</option></select><button id="filtrar">Filtrar</button>
+        <p id="mensagem" aria-live="polite"></p><div class="tabela-wrap"><table><thead><tr><th>Prefixo</th><th>Código</th><th>Carga</th><th>Origem → destino</th><th>Status</th><th>Previsão</th></tr></thead><tbody id="lista-cargas"></tbody></table></div>
+    </main><script src="cargas.js"></script>
+<script src="../perfil/perfilAtalho.js"></script></body>
 </html>

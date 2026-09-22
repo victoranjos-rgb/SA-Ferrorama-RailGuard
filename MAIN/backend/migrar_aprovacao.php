@@ -45,4 +45,3 @@ if (!$conexao->query("UPDATE usuarios SET status_acesso = 'aprovado', analisado_
 }
 
 echo "Migracao concluida. Contas existentes foram aprovadas e novos cadastros ficarao pendentes.\n";
-

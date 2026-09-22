@@ -42,8 +42,18 @@ h1 {
     font-size: clamp(24px, 4vw, 38px);
 }
 
-.cabecalho a {
+.cabecalho .voltar {
+    margin-right: 64px;
+    padding: 10px 14px;
+    border: 1px solid #6e7d8f;
+    border-radius: 8px;
     color: var(--texto);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.cabecalho .voltar:hover {
+    background: #313c4a;
 }
 
 main {
@@ -145,6 +155,10 @@ button:disabled {
     .cabecalho {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .cabecalho .voltar {
+        margin-right: 0;
     }
 
     main {

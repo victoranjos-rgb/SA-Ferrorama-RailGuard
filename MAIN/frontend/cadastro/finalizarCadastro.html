@@ -4,39 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
 </head>
 <body>
-    <!-- Integração com o backend desenvolvida com auxílio de IA (OpenAI Codex). -->
-    <div class="logo"><img src="../Imagens/Logo (1).png" alt="Logo"></div>
-    <h1>Finalizar Cadastro</h1>
-    <form id="form-cadastro-final" class="dados-cadastro">
+    <main class="page-shell">
+        <div class="logo"><img src="../Imagens/Logo (1).png" alt="Logo"></div>
+        <h1>Finalizar Cadastro</h1>
 
-        <div class="dados-cadastro">
-            <input type="text" id="pais" name="pais" placeholder="País" maxlength="80" required>
-        </div>
-        <div class="dados-cadastro">
-            <input type="text" id="estado" name="estado" placeholder="Estado" maxlength="80" required>
-        </div>
+        <form id="form-cadastro-final" class="dados-cadastro">
+            <div class="campo">
+                <input type="text" id="pais" name="pais" placeholder="País" maxlength="80" required>
+            </div>
 
-        <div class="dados-cadastro">
-            <input type="text" id="cidade" name="cidade" placeholder="Cidade" maxlength="100" required>
-        </div>
+            <div class="campo">
+                <input type="text" id="estado" name="estado" placeholder="Estado" maxlength="80" required>
+            </div>
 
-        <div class="dados-cadastro">
-            <select name="cargo" id="cargo" required>
-                <option value="">Selecione o cargo</option>
-                <option value="membro">Membro</option>
-                <option value="gestor">Gestor</option>
-                <option value="maquinista">Maquinista</option>
-            </select>
-        </div>
+            <div class="campo">
+                <input type="text" id="cidade" name="cidade" placeholder="Cidade" maxlength="100" required>
+            </div>
 
-        <p id="mensagem-cadastro" role="alert" aria-live="polite"></p>
+            <div class="campo">
+                <select name="cargo" id="cargo" required>
+                    <option value="">Selecione o cargo</option>
+                    <option value="membro">Membro</option>
+                    <option value="gestor">Gestor</option>
+                    <option value="maquinista">Maquinista</option>
+                </select>
+            </div>
 
-        <div class="buttonCadastras">
+            <p id="mensagem-cadastro" role="alert" aria-live="polite"></p>
+
             <button type="submit">Cadastrar</button>
-        </div>
-    </form>
+        </form>
+    </main>
 
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --fundo: #11161a;
+  --painel: #202932;
+  --painel-2: #2c3640;
+  --cartao: #3a4653;
+  --texto: #edf3ff;
+  --muted: #bfd0e7;
+  --borda: rgba(180, 196, 214, 0.35);
+  --azul: #88c2ff;
+  --verde: #8fe3a1;
+  --vermelho: #ff9090;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 4vw, 40px);
+  background: radial-gradient(circle at top, rgba(95, 132, 184, 0.22), transparent 24%), linear-gradient(180deg, #11161a 0%, #171d24 100%);
+  color: var(--texto);
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.recuperar {
+  width: min(520px, 100%);
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid var(--borda);
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(37, 45, 56, 0.96) 0%, rgba(23, 29, 36, 0.98) 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.logo img {
+  width: min(200px, 55%);
+  height: auto;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.titulo h2 {
+  margin: 0;
+  color: var(--muted);
+  font: 800 clamp(2rem, 5vw, 3rem)/1 'Abhaya Libre', Georgia, serif;
+}
+
+.field,
+.form-row {
+  margin-bottom: 18px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid rgba(168, 182, 199, 0.38);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--texto);
+  padding: 14px 16px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+  color: rgba(230, 235, 242, 0.7);
+}
+
+input:focus {
+  border-color: rgba(136, 194, 255, 0.9);
+  box-shadow: 0 0 0 3px rgba(136, 194, 255, 0.12);
+}
+
+button {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  padding: 15px 18px;
+  background: linear-gradient(180deg, #4b5867 0%, #2d3743 100%);
+  color: var(--texto);
+  font: 700 1rem 'Inter', Arial, sans-serif;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  outline: none;
+}
+
+button:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+#mensagem-reset {
+  min-height: 24px;
+  margin: 12px 0 16px;
+  text-align: center;
+  font-size: 0.94rem;
+}
+
+#mensagem-reset[data-tipo='erro'] {
+  color: var(--vermelho);
+}
+
+#mensagem-reset[data-tipo='sucesso'] {
+  color: var(--verde);
+}
+
+#mensagem-reset[data-tipo='informacao'] {
+  color: var(--azul);
+}
+
+.link-voltar {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.link-voltar:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 12px;
+  }
+
+  .recuperar {
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+
+  .logo img {
+    width: 170px;
+  }
+}
