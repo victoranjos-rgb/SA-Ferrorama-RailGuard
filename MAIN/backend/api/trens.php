@@ -129,3 +129,4 @@ if ($metodo === 'DELETE') {
 
 responderErro(405, 'Metodo nao permitido.');
 
+

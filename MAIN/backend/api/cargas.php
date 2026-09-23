@@ -8,3 +8,4 @@ $d=lerDadosRequisicao();$codigo=strtoupper(trim((string)($d['codigo_carga']??'')
 if(!preg_match('/^[A-Z0-9-]{3,20}$/',$codigo)||$descricao===''||$origem===''||$destino===''||$peso<=0||!in_array($status,['aguardando','em_transito','entregue','atrasada','cancelada'],true))responderErro(422,'Preencha os dados da carga corretamente.');
 if($metodo==='POST'){$s=$conexao->prepare('INSERT INTO cargas(codigo_carga,descricao,peso_kg,origem,destino,id_trem,status_carga,chegada_prevista) VALUES(?,?,?,?,?,?,?,?)');$s->bind_param('ssdssiss',$codigo,$descricao,$peso,$origem,$destino,$idTrem,$status,$chegada);$s->execute();$s->close();responderJson(201,['mensagem'=>'Carga cadastrada com sucesso.']);}
 responderErro(405,'Metodo nao permitido.');
+

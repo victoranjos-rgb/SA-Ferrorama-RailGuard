@@ -72,3 +72,4 @@ if ($metodo === 'DELETE') {
     responderJson(200, ['mensagem' => 'Rota excluida.']);
 }
 responderErro(405, 'Metodo nao permitido.');
+
