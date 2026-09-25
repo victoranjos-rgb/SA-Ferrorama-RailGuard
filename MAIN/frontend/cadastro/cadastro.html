@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="cadastro.css?v=20260925-1">
+    <link rel="stylesheet" href="../componentes/senha.css?v=20260925-1">
 </head>
 <body>
     <main class="page-shell">
@@ -25,11 +26,11 @@
             </div>
 
             <div class="campo">
-                <input type="password" id="senha" name="senha" placeholder="Senha" minlength="8" required>
+                <input type="password" id="senha" name="senha" placeholder="Senha" minlength="8" autocomplete="new-password" required>
             </div>
 
             <div class="campo">
-                <input type="password" id="confirmacao_senha" name="confirmacao_senha" placeholder="Repetir senha" minlength="8" required>
+                <input type="password" id="confirmacao_senha" name="confirmacao_senha" placeholder="Repetir senha" minlength="8" autocomplete="new-password" required>
             </div>
 
             <label class="checkbox">
@@ -43,6 +44,7 @@
         </form>
     </main>
 
+    <script src="../componentes/senha.js?v=20260925-1"></script>
     <script src="script.js"></script>
 </body>
 </html>

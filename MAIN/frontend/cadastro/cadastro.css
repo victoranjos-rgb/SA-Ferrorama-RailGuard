@@ -88,6 +88,23 @@ h1 {
   color: rgba(230, 235, 242, 0.7);
 }
 
+/* Contraste do seletor de cargo ajustado com auxílio de IA (OpenAI Codex). */
+.dados-cadastro select {
+  background-color: #202932;
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.dados-cadastro select option {
+  background-color: #202932;
+  color: #edf3ff;
+}
+
+.dados-cadastro select option:checked {
+  background-color: #286dcc;
+  color: #ffffff;
+}
+
 .dados-cadastro input:focus,
 .dados-cadastro select:focus {
   border-color: rgba(136, 194, 255, 0.9);

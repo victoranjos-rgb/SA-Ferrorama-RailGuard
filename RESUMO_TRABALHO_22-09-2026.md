@@ -95,3 +95,141 @@ Arquivos principais:
 - Não versionar `config.php`, certificados ou senhas.
 - Validar os fluxos completos no XAMPP antes da apresentação.
 
+---
+
+# Atualização do trabalho — 25/09/2026
+
+## Objetivo do dia
+
+Continuar a construção das telas operacionais do RailGuard, corrigir problemas visuais encontrados durante os testes e acrescentar o gerenciamento dos sensores instalados nos trilhos.
+
+## Funcionalidades e melhorias implementadas
+
+### Trens cadastrados
+
+- Corrigido o posicionamento e a aparência do botão **Novo trem**.
+- Adicionado e posteriormente padronizado o botão de voltar com uma seta simples.
+- Mantida a listagem dos trens existentes, com ações para editar e excluir.
+
+Arquivos principais:
+
+- `MAIN/frontend/trens/trensCadastrados.html`
+- `MAIN/frontend/trens/trens.css`
+
+### Relatórios e análises
+
+- Reconstruída a apresentação dos indicadores das cargas.
+- Melhorada a aparência e a responsividade da tabela de movimentações.
+- Adicionado tratamento para sessão expirada e erros retornados pela API.
+- Mantida a integração com os dados reais cadastrados no sistema.
+
+Arquivos principais:
+
+- `MAIN/frontend/RelatorioAnalise/relatorioAnalise.html`
+- `MAIN/frontend/RelatorioAnalise/relatorioAnalise.css`
+- `MAIN/frontend/RelatorioAnalise/relatorioAnalise.js`
+
+### Manutenção dos trilhos
+
+- Reconstruída a tela de cadastro e histórico de manutenções dos trilhos.
+- Implementado o vínculo da manutenção com uma rota existente.
+- Criados os campos de localização, descrição, datas, prioridade, situação e responsável.
+- Corrigido o carregamento das rotas no seletor.
+- Criada no Aiven a tabela `manutencoes_trilhos`.
+- Validada a regra RN10: uma rota com manutenção aberta ou em andamento fica bloqueada; ao concluir ou cancelar a manutenção, a rota é liberada.
+
+Arquivos principais:
+
+- `MAIN/backend/api/manutencoes_trilhos.php`
+- `MAIN/backend/migrar_manutencoes_trilhos.php`
+- `MAIN/frontend/Trilhos/manuntecaoTrilhos.html`
+- `MAIN/frontend/Trilhos/trilhos.css`
+- `MAIN/frontend/Trilhos/trilhos.js`
+- `tests/test_manutencoes_trilhos.php`
+
+### Padronização dos botões de voltar
+
+- Os botões com texto e caixa foram substituídos pela seta simples utilizada no Dashboard.
+- A alteração foi aplicada nas telas de trens, aprovações, cargas, relatórios, perfil e manutenção dos trilhos.
+- Foram incluídos `aria-label` e `title` para manter a acessibilidade.
+- O posicionamento foi ajustado para celular, tablet e computador.
+
+### Correção da tela Finalizar Cadastro
+
+- Corrigido o baixo contraste do seletor de cargo.
+- As opções agora possuem fundo escuro e texto claro.
+- A opção selecionada possui destaque azul com texto branco.
+- O CSS recebeu versionamento na URL para evitar que o navegador reutilize uma versão antiga em cache.
+
+Arquivos principais:
+
+- `MAIN/frontend/cadastro/finalizarCadastro.html`
+- `MAIN/frontend/cadastro/cadastro.css`
+
+### CRUD de sensores dos trilhos
+
+- Consultado o repositório `ProfCercal/crud-trens`, que possui estrutura para leituras de sensores e um simulador de dados.
+- Criado o cadastro dos dispositivos que serão instalados nos trilhos.
+- Adicionados os tipos de sensor:
+  - proximidade;
+  - velocidade;
+  - vibração;
+  - temperatura.
+- Cada sensor pode possuir código, modelo, rota, localização, unidade de medida, limite para alerta e situação operacional.
+- Criada uma tela com:
+  - cadastro e edição;
+  - listagem e pesquisa;
+  - exclusão;
+  - indicadores de sensores ativos, em manutenção e com alerta;
+  - layout responsivo para celular, tablet e computador.
+- A alteração dos sensores foi restrita aos gestores.
+- Adicionado o acesso **Sensores dos trilhos** na página inicial do gestor.
+- Criada a tabela `sensores` no banco Aiven.
+
+Arquivos principais:
+
+- `MAIN/backend/migrar_sensores.php`
+- `MAIN/backend/api/sensores.php`
+- `MAIN/frontend/sensores/sensores.html`
+- `MAIN/frontend/sensores/sensores.css`
+- `MAIN/frontend/sensores/sensores.js`
+- `tests/test_crud_sensores.php`
+
+### Visualização de senhas
+
+- Criado um componente reutilizável com botão de olho para mostrar ou ocultar a senha.
+- O botão foi incluído nas telas de login, cadastro e redefinição de senha.
+- O ícone muda para um olho cortado quando a senha está visível.
+- Cada campo pode ser controlado separadamente.
+- O botão utiliza `type="button"`, portanto não envia o formulário acidentalmente.
+- Foram adicionadas descrições acessíveis para **Mostrar senha** e **Ocultar senha**.
+
+Arquivos principais:
+
+- `MAIN/frontend/componentes/senha.css`
+- `MAIN/frontend/componentes/senha.js`
+- `MAIN/frontend/login/login.html`
+- `MAIN/frontend/cadastro/cadastro.html`
+- `MAIN/frontend/EsqueceuSenha/novaSenha.html`
+
+## Testes executados
+
+- Verificação de sintaxe dos arquivos PHP relacionados aos sensores.
+- Verificação de sintaxe dos novos arquivos JavaScript.
+- Teste automatizado do CRUD de sensores:
+  - criar sensor: aprovado;
+  - listar sensor: aprovado;
+  - editar sensor: aprovado;
+  - excluir sensor: aprovado.
+- Teste automatizado da manutenção dos trilhos e do bloqueio de rotas: aprovado.
+- Verificação HTTP das páginas e dos arquivos CSS/JavaScript: respostas `200`.
+- Verificação de formatação com `git diff --check` sem erros nas alterações.
+
+## Próximas etapas sugeridas
+
+- Criar a tabela e a API de leituras enviadas pelos sensores.
+- Adaptar o simulador do professor para gerar dados enquanto os dispositivos físicos não estiverem disponíveis.
+- Exibir alertas em tempo real quando uma leitura ultrapassar o limite configurado.
+- Relacionar leituras de proximidade e velocidade com os trens que estiverem percorrendo cada rota.
+- Validar visualmente todas as telas nos tamanhos de até 400 px, tablet de até 800 px e computador.
+

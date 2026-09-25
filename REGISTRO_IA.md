@@ -111,3 +111,66 @@ Este documento registra as partes do projeto RailGuard desenvolvidas ou alterada
 - Arquivo criado: `RESUMO_TRABALHO_22-09-2026.md`.
 - Trabalho realizado: criação de um documento consolidando recursos implementados, arquivos principais, configurações pendentes e roteiro de testes locais.
 
+## 25/09/2026 — Refinamento de Relatórios e Análises
+
+- Ferramenta utilizada: OpenAI Codex.
+- Arquivos alterados: tela, CSS e JavaScript de `MAIN/frontend/RelatorioAnalise/`.
+- Trabalho realizado:
+  - criação de cartões para os indicadores das cargas;
+  - melhoria visual e responsiva da tabela de atualizações;
+  - inclusão do botão de voltar e espaço para o atalho de perfil;
+  - tratamento de sessão expirada, erros da API e dados exibidos no HTML.
+
+## 25/09/2026 — Refinamento de Manutenção dos Trilhos
+
+- Ferramenta utilizada: OpenAI Codex.
+- Arquivos alterados: HTML, CSS e JavaScript de `MAIN/frontend/Trilhos/`.
+- Trabalho realizado:
+  - reconstrução visual do formulário e histórico;
+  - inclusão de botão de voltar e espaço para o atalho de perfil;
+  - versionamento dos recursos para evitar carregamento da tela antiga pelo cache;
+  - correção do seletor de rotas;
+  - criação da tabela `manutencoes_trilhos` no Aiven e validação da RN10.
+
+## 25/09/2026 — Padronização dos botões de voltar
+
+- Ferramenta utilizada: OpenAI Codex.
+- Arquivos alterados: telas e estilos de trens, aprovações, cargas, relatórios, perfil e manutenção dos trilhos.
+- Trabalho realizado:
+  - substituição dos botões com texto e caixa pela seta simples usada no Dashboard;
+  - inclusão de descrição acessível com `aria-label` e `title`;
+  - ajuste do posicionamento e da responsividade da seta em celular, tablet e computador.
+
+## 25/09/2026 — Contraste do seletor de cargo
+
+- Ferramenta utilizada: OpenAI Codex.
+- Arquivos alterados: `MAIN/frontend/cadastro/cadastro.css` e `finalizarCadastro.html`.
+- Trabalho realizado:
+  - aplicação de fundo escuro e texto claro nas opções do campo de cargo;
+  - destaque azul com texto branco para a opção selecionada;
+  - versionamento do CSS para impedir que o navegador mantenha o estilo antigo em cache.
+
+## 25/09/2026 — CRUD de sensores dos trilhos
+
+- Ferramenta utilizada: OpenAI Codex.
+- Referência consultada: repositório `ProfCercal/crud-trens`, especialmente a tabela e API de leituras dos sensores.
+- Arquivos criados: migração e API de sensores, tela responsiva com CSS e JavaScript e teste automatizado do CRUD.
+- Trabalho realizado:
+  - cadastro de sensores de proximidade, velocidade, vibração e temperatura;
+  - vínculo opcional do sensor com uma rota e localização no trilho;
+  - configuração de unidade, limite de alerta e situação operacional;
+  - listagem, busca, indicadores, edição e exclusão;
+  - permissão de alteração restrita aos gestores;
+  - inclusão do acesso na página inicial do gestor.
+
+## 25/09/2026 — Botão para visualizar senhas
+
+- Ferramenta utilizada: OpenAI Codex.
+- Arquivos criados: `MAIN/frontend/componentes/senha.css` e `senha.js`.
+- Telas alteradas: login, cadastro e redefinição de senha.
+- Trabalho realizado:
+  - inclusão de um botão com ícone de olho para mostrar ou ocultar cada senha;
+  - manutenção do botão como `type="button"` para não enviar o formulário;
+  - inclusão de textos acessíveis que mudam entre “Mostrar senha” e “Ocultar senha”;
+  - reutilização do mesmo componente nas três telas.
+

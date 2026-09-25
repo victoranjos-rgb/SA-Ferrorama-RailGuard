@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova senha</title>
     <link rel="stylesheet" href="recuperarSenha.css">
+    <link rel="stylesheet" href="../componentes/senha.css?v=20260925-1">
 </head>
 <body>
     <main class="recuperar">
@@ -13,11 +14,11 @@
 
         <form id="form-nova-senha">
             <div class="field">
-                <input type="password" id="nova-senha" placeholder="Nova senha" minlength="8" required>
+                <input type="password" id="nova-senha" placeholder="Nova senha" minlength="8" autocomplete="new-password" required>
             </div>
 
             <div class="field">
-                <input type="password" id="confirmar-senha" placeholder="Repita a senha" minlength="8" required>
+                <input type="password" id="confirmar-senha" placeholder="Repita a senha" minlength="8" autocomplete="new-password" required>
             </div>
 
             <div class="form-row">
@@ -30,6 +31,7 @@
         <a class="link-voltar" href="../login/login.html">Voltar para o login</a>
     </main>
 
+    <script src="../componentes/senha.js?v=20260925-1"></script>
     <script src="recuperarSenha.js"></script>
 </body>
 </html>

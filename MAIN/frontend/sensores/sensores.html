@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sensores dos trilhos | RailGuard</title>
+    <link rel="stylesheet" href="sensores.css?v=20260925-1">
 </head>
 <body>
-    
-<script src="../perfil/perfilAtalho.js"></script></body>
+    <!-- CRUD desenvolvido com auxílio de IA (OpenAI Codex), adaptado do repositório do professor. -->
+    <main class="aplicacao">
+        <section class="painel">
+            <header class="cabecalho">
+                <a class="voltar" href="../PaginaInicial/paginaInicialGestor.html" aria-label="Voltar" title="Voltar">&#8592;</a>
+                <div><p class="marca">RAILGUARD</p><h1>Sensores dos trilhos</h1><p>Cadastre e acompanhe os dispositivos instalados na ferrovia.</p></div>
+                <button id="novo-sensor" type="button">+ Novo sensor</button>
+            </header>
+            <section class="indicadores" aria-label="Resumo dos sensores">
+                <article><span>Total</span><strong id="total-sensores">0</strong></article><article><span>Ativos</span><strong id="sensores-ativos">0</strong></article><article><span>Em manutenção</span><strong id="sensores-manutencao">0</strong></article><article><span>Com alerta</span><strong id="sensores-alerta">0</strong></article>
+            </section>
+            <form id="form-sensor" class="formulario" hidden>
+                <input type="hidden" id="id_sensor">
+                <div class="titulo-formulario"><h2 id="titulo-formulario">Cadastrar sensor</h2><button id="fechar-formulario" type="button" aria-label="Fechar formulário">×</button></div>
+                <label>Código do sensor<input id="codigo_sensor" maxlength="30" placeholder="Ex.: SEN-VEL-001" required></label>
+                <label>Tipo<select id="tipo_sensor" required><option value="proximidade">Proximidade</option><option value="velocidade">Velocidade</option><option value="vibracao">Vibração</option><option value="temperatura">Temperatura</option></select></label>
+                <label>Modelo<input id="modelo_sensor" maxlength="80" placeholder="Ex.: HC-SR04" required></label>
+                <label>Rota<select id="id_rota"><option value="">Sem rota vinculada</option></select></label>
+                <label class="largo">Localização<input id="localizacao" maxlength="150" placeholder="Ex.: Km 12, próximo ao cruzamento norte" required></label>
+                <label>Unidade de medida<input id="unidade_medida" maxlength="20" placeholder="Ex.: km/h, cm, mm/s ou °C" required></label>
+                <label>Limite para alerta<input id="limite_alerta" type="number" min="0" step="0.01" placeholder="Opcional"></label>
+                <label>Status<select id="status_sensor" required><option value="ativo">Ativo</option><option value="inativo">Inativo</option><option value="manutencao">Em manutenção</option></select></label>
+                <div class="acoes-formulario largo"><button type="submit">Salvar sensor</button><button id="cancelar" type="button">Cancelar</button></div>
+            </form>
+            <p id="mensagem" role="status" aria-live="polite"></p>
+            <div class="barra-lista"><div><p class="marca">DISPOSITIVOS</p><h2>Sensores cadastrados</h2></div><input id="busca" type="search" placeholder="Buscar por código, tipo, rota ou local"></div>
+            <div class="tabela-wrap"><table><thead><tr><th>Sensor</th><th>Tipo</th><th>Rota/local</th><th>Última leitura</th><th>Status</th><th>Ações</th></tr></thead><tbody id="lista-sensores"></tbody></table></div>
+        </section>
+    </main>
+    <script src="sensores.js?v=20260925-1"></script>
+    <script src="../perfil/perfilAtalho.js"></script>
+</body>
 </html>

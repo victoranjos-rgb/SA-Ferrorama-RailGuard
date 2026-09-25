@@ -23,9 +23,9 @@ body {
 }
 
 .cabecalho {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    justify-content: space-between;
     gap: 24px;
     padding: 24px clamp(16px, 5vw, 64px);
     background: #202731;
@@ -43,17 +43,17 @@ h1 {
 }
 
 .cabecalho .voltar {
-    margin-right: 64px;
-    padding: 10px 14px;
-    border: 1px solid #6e7d8f;
-    border-radius: 8px;
+    display: inline-flex;
+    padding: 0;
     color: var(--texto);
     text-decoration: none;
-    font-weight: 700;
+    font: 400 3.5rem/1 Arial, sans-serif;
+    transition: transform .18s;
 }
 
-.cabecalho .voltar:hover {
-    background: #313c4a;
+.cabecalho .voltar:hover,
+.cabecalho .voltar:focus-visible {
+    transform: translateX(-4px);
 }
 
 main {
@@ -158,7 +158,7 @@ button:disabled {
     }
 
     .cabecalho .voltar {
-        margin-right: 0;
+        margin: 0;
     }
 
     main {

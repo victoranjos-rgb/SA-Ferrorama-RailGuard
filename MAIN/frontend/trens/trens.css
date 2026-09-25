@@ -4,5 +4,8 @@
 /* Cabeçalho da listagem ajustado com auxílio de IA (OpenAI Codex). */
 .cabecalho-trens{display:grid;grid-template-columns:auto 1fr auto;gap:20px;padding-right:clamp(82px,7vw,110px)}.cabecalho-trens h1{text-align:center}.botao-voltar,.botao-novo{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 16px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;white-space:nowrap}.botao-voltar{border:1px solid #657284;background:#303a46}.botao-novo{background:#4d83c4;box-shadow:0 4px 10px #0005}.botao-voltar:hover,.botao-voltar:focus-visible{background:#3c4856}.botao-novo:hover,.botao-novo:focus-visible{background:#5b94d8}.cabecalho-acoes{display:flex;align-items:center}
 @media(max-width:800px){.cabecalho-trens{grid-template-columns:auto 1fr;padding-right:82px}.cabecalho-trens h1{text-align:left}.cabecalho-acoes{grid-column:1/-1}.botao-novo{width:100%}}
-@media(max-width:400px){.cabecalho-trens{display:grid;grid-template-columns:1fr;padding:16px 76px 16px 14px}.cabecalho-trens h1{font-size:1.65rem}.cabecalho-acoes{grid-column:auto}.botao-voltar,.botao-novo{width:100%}}
+@media(max-width:400px){.cabecalho-trens{display:grid;grid-template-columns:auto 1fr;padding:16px 76px 16px 14px}.cabecalho-trens h1{font-size:1.65rem}.cabecalho-acoes{grid-column:1/-1}.botao-novo{width:100%}}
+
+/* Seta de retorno padronizada com auxílio de IA (OpenAI Codex). */
+.cabecalho-trens .botao-voltar{min-height:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:#fff;font:400 3.5rem/1 Arial,sans-serif}.cabecalho-trens .botao-voltar:hover,.cabecalho-trens .botao-voltar:focus-visible{background:transparent;transform:translateX(-4px)}
 

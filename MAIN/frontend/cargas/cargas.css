@@ -6,3 +6,7 @@
 
 .form-carga{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:30px auto 0;max-width:920px;padding:clamp(18px,3vw,30px);border:1px solid #596574;border-radius:20px;background:#343b45;box-shadow:0 8px 18px #0004}.form-carga label{display:grid;gap:8px;color:#dce5ef;font-weight:700}.form-carga input,.form-carga select{width:100%;min-width:0;margin:0;background:#596574}.form-carga button,.form-carga #mensagem{grid-column:1/-1}.form-carga button{margin:4px 0 0;padding:14px;font-size:1.03rem}.form-carga #mensagem{margin:0;text-align:left}@media(max-width:800px){.form-carga{grid-template-columns:1fr}}@media(max-width:400px){.form-carga{padding:16px;border-radius:14px}}
 
+/* Seta de retorno padronizada com auxílio de IA (OpenAI Codex). */
+.operacao>.voltar-icone{display:inline-flex;padding:0;background:transparent;color:#fff;font:400 3.5rem/1 Arial,sans-serif;text-decoration:none;transition:transform .18s}.operacao>.voltar-icone:hover,.operacao>.voltar-icone:focus-visible{transform:translateX(-4px)}
+@media(max-width:400px){.operacao>.voltar-icone{font-size:3.3rem}}
+
