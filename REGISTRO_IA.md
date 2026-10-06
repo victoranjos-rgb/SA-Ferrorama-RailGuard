@@ -174,3 +174,65 @@ Este documento registra as partes do projeto RailGuard desenvolvidas ou alterada
   - inclusão de textos acessíveis que mudam entre “Mostrar senha” e “Ocultar senha”;
   - reutilização do mesmo componente nas três telas.
 
+## 29/09/2026 — Sensores nos trens e gestão de usuários
+
+- Ferramenta utilizada: OpenAI Codex.
+- Trabalho realizado nos sensores:
+  - inclusão do vínculo opcional entre um sensor e um trem cadastrado;
+  - atualização da migração, API, formulário, pesquisa e tabela da tela de sensores;
+  - manutenção do vínculo opcional com rota para sensores instalados nos trilhos;
+  - validação da existência do trem e da rota informados.
+- Trabalho realizado nos usuários:
+  - criação de API exclusiva para gestores listarem e atualizarem usuários;
+  - criação de tela com pesquisa, filtro, indicadores, cargos e situações de acesso;
+  - edição de cargo, aprovação, bloqueio, ativação e observação;
+  - proteção para impedir que o gestor remova o próprio acesso;
+  - inclusão do atalho “Usuários” na página inicial do gestor.
+- Testes automatizados: CRUD de sensor vinculado a trem e gestão de usuários aprovados.
+
+## 29/09/2026 — Formulário de sensores por local de instalação
+
+- Ferramenta utilizada: OpenAI Codex.
+- Trabalho realizado:
+  - inclusão da escolha entre sensor instalado nos trilhos ou no trem;
+  - exibição condicional do seletor de rota ou de trem;
+  - alteração automática da orientação de localização conforme a escolha;
+  - validação no frontend e backend para exigir somente o vínculo correspondente;
+  - impedimento de salvar simultaneamente vínculo de rota e trem;
+  - atualização do teste automatizado do sensor instalado no trem.
+
+## 29/09/2026 — Guia de estudo do backend PHP
+
+- Ferramenta utilizada: OpenAI Codex com integração ao Google Docs.
+- Documento criado: `Guia de Estudo PHP — RailGuard`.
+- Conteúdo produzido a partir dos arquivos reais do projeto:
+  - fundamentos de PHP utilizados no RailGuard;
+  - conexão segura com MySQL/Aiven;
+  - APIs, JSON e códigos HTTP;
+  - sessões, cargos, hash de senha e prepared statements;
+  - estudos de caso de sensores, usuários e manutenção dos trilhos;
+  - testes automatizados, limitações, melhorias futuras;
+  - roteiro de apresentação e possíveis perguntas do professor.
+
+## 29/09/2026 — Tema global, responsividade e painéis por cargo
+
+- Ferramenta utilizada: OpenAI Codex.
+- Tema e responsividade:
+  - criação de componente global para alternar entre modo claro e escuro;
+  - persistência da preferência no `localStorage`;
+  - integração do tema com todas as páginas HTML do frontend;
+  - sincronização com a tela de Configurações;
+  - reforço responsivo global e correção específica da tela de login;
+  - manutenção dos pontos de quebra para celular, tablet e computador.
+- Membro:
+  - criação de página inicial própria com acesso de consulta ao dashboard, rotas, cargas, sensores, relatórios e perfil;
+  - verificação do cargo pela sessão antes de liberar o painel.
+- Maquinista:
+  - criação de página inicial operacional;
+  - acesso ao dashboard, rotas, cadastro e monitoramento de cargas, sensores, relatórios e perfil;
+  - verificação do cargo pela sessão.
+- Segurança e experiência:
+  - modo de consulta oculta formulários e ações administrativas;
+  - botões de voltar passam a considerar o cargo do usuário autenticado;
+  - permissões do backend permanecem como proteção principal.
+

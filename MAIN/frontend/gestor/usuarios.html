@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de usuários | RailGuard</title>
+    <link rel="stylesheet" href="usuarios.css?v=20260929-1">
+</head>
+<body>
+    <!-- Tela desenvolvida com auxílio de IA (OpenAI Codex). -->
+    <main class="aplicacao">
+        <section class="painel">
+            <header class="cabecalho">
+                <a class="voltar" href="../PaginaInicial/paginaInicialGestor.html" aria-label="Voltar" title="Voltar">&#8592;</a>
+                <div><p class="marca">RAILGUARD</p><h1>Gestão de usuários</h1><p>Consulte as contas cadastradas e controle cargos e acessos.</p></div>
+                <a class="pendentes" href="aprovacoes.html">Ver aprovações pendentes</a>
+            </header>
+            <section class="indicadores" aria-label="Resumo dos usuários">
+                <article><span>Total</span><strong id="total">0</strong></article><article><span>Aprovados</span><strong id="aprovados">0</strong></article><article><span>Pendentes</span><strong id="pendentes">0</strong></article><article><span>Bloqueados</span><strong id="bloqueados">0</strong></article>
+            </section>
+            <div class="filtros"><input id="busca" type="search" placeholder="Buscar por nome, usuário, e-mail, cidade ou cargo"><select id="filtro-status"><option value="">Todos os acessos</option><option value="aprovado">Aprovados</option><option value="pendente">Pendentes</option><option value="rejeitado">Rejeitados</option><option value="bloqueado">Bloqueados</option></select></div>
+            <p id="mensagem" role="status" aria-live="polite"></p>
+            <div class="tabela-wrap"><table><thead><tr><th>Usuário</th><th>Local</th><th>Cargo</th><th>Acesso</th><th>Conta</th><th>Cadastro</th><th>Ação</th></tr></thead><tbody id="lista-usuarios"></tbody></table></div>
+        </section>
+    </main>
+    <dialog id="dialogo-edicao">
+        <form id="form-usuario" method="dialog">
+            <div class="titulo-dialogo"><div><p class="marca">EDITAR CONTA</p><h2 id="nome-edicao"></h2></div><button id="fechar" type="button" aria-label="Fechar">×</button></div>
+            <input type="hidden" id="id_usuario">
+            <label>Cargo<select id="cargo"><option value="membro">Membro</option><option value="maquinista">Maquinista</option><option value="gestor">Gestor</option></select></label>
+            <label>Acesso<select id="status_acesso"><option value="pendente">Pendente</option><option value="aprovado">Aprovado</option><option value="rejeitado">Rejeitado</option><option value="bloqueado">Bloqueado</option></select></label>
+            <label class="conta-ativa"><input id="ativo" type="checkbox"><span>Conta ativa</span></label>
+            <label>Observação<textarea id="observacao_acesso" maxlength="255" rows="3" placeholder="Motivo da alteração, se necessário"></textarea></label>
+            <div class="acoes-dialogo"><button id="cancelar" type="button">Cancelar</button><button type="submit">Salvar alterações</button></div>
+        </form>
+    </dialog>
+    <script src="usuarios.js?v=20260929-1"></script>
+    <script src="../perfil/perfilAtalho.js"></script>
+</body>
+</html>

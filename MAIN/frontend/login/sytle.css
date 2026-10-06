@@ -155,3 +155,19 @@ body{
     cursor: wait;
     opacity: 0.7;
 }
+
+/* Responsividade revisada com auxílio de IA (OpenAI Codex). */
+@media (max-width: 800px) {
+    body { min-height: 100vh; height: auto; padding: 20px; }
+    .login { width: min(620px, 100%); height: auto; flex-direction: column; gap: 28px; padding: 32px; border-radius: 22px; }
+    .logo { width: min(230px, 60%); }
+    .formulario { width: min(420px, 100%); }
+}
+
+@media (max-width: 400px) {
+    body { padding: 0; }
+    .login { min-height: 100vh; width: 100%; justify-content: center; padding: 24px 16px 76px; border-radius: 0; }
+    .logo { width: 150px; }
+    .titulo h2 { margin-bottom: 20px; font-size: 34px; }
+    .loginBtn button { padding: 14px; font-size: 26px; }
+}

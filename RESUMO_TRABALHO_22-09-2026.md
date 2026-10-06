@@ -195,6 +195,24 @@ Arquivos principais:
 - `MAIN/frontend/sensores/sensores.js`
 - `tests/test_crud_sensores.php`
 
+## Tema claro e responsividade geral
+
+- Criado um componente compartilhado de modo claro e escuro.
+- A preferência é mantida ao navegar entre páginas.
+- Todas as telas HTML carregam o mesmo componente de tema.
+- Adicionado botão flutuante para alternância rápida e mantida a opção em Configurações.
+- Criadas regras globais para formulários, tabelas, cartões, cabeçalhos e navegação no modo claro.
+- Reforçada a adaptação para celular de até 400 px, tablet de até 800 px e computador.
+- Corrigido separadamente o layout responsivo do login.
+
+## Painéis de membro e maquinista
+
+- Substituídas as páginas incompletas por painéis responsivos e protegidos por sessão.
+- O painel do membro oferece consultas ao dashboard, rotas, cargas, sensores, relatórios e perfil.
+- O painel do maquinista oferece recursos operacionais e permite cadastrar cargas, conforme a permissão da API.
+- Rotas e sensores abertos por esses painéis utilizam modo de consulta, sem formulários administrativos.
+- Os botões de voltar reconhecem o cargo e retornam à página inicial correspondente.
+
 ### Visualização de senhas
 
 - Criado um componente reutilizável com botão de olho para mostrar ou ocultar a senha.
@@ -232,4 +250,45 @@ Arquivos principais:
 - Exibir alertas em tempo real quando uma leitura ultrapassar o limite configurado.
 - Relacionar leituras de proximidade e velocidade com os trens que estiverem percorrendo cada rota.
 - Validar visualmente todas as telas nos tamanhos de até 400 px, tablet de até 800 px e computador.
+
+---
+
+# Atualização do trabalho — 29/09/2026
+
+## Sensores vinculados aos trens
+
+- A tela passou a atender sensores instalados nos trilhos e diretamente nos trens.
+- Ao clicar em **Novo sensor**, o gestor escolhe primeiro entre **Nos trilhos** e **No trem**.
+- Para sensores nos trilhos, o formulário apresenta e exige uma rota.
+- Para sensores no trem, o formulário apresenta e exige um trem.
+- Os campos são alternados automaticamente e o backend impede vínculos incompatíveis.
+- Adicionado seletor para vincular o dispositivo a um trem cadastrado.
+- A listagem agora mostra o prefixo e o modelo do trem associado.
+- A busca também encontra sensores pelo prefixo ou modelo do trem.
+- A tabela `sensores` recebeu a coluna `id_trem` e uma chave estrangeira para `trens`.
+- A API valida se o trem e a rota selecionados realmente existem.
+- O teste automatizado confirmou criação, listagem, edição e exclusão de um sensor vinculado a um trem.
+
+## Gestão de usuários
+
+- Criada uma tela exclusiva do gestor para consultar todos os usuários cadastrados.
+- A tela apresenta nome, usuário, e-mail, localização, cargo, acesso, situação da conta e data de cadastro.
+- Adicionados pesquisa por dados do usuário e filtro por situação de acesso.
+- Criados indicadores de total, aprovados, pendentes e bloqueados.
+- O gestor pode alterar cargo, situação de acesso, ativação da conta e observação administrativa.
+- O sistema impede que o gestor retire o próprio cargo, bloqueie a própria conta ou remova a própria aprovação.
+- A tela de aprovações pendentes foi mantida e recebeu acesso pela nova gestão de usuários.
+- Adicionado o atalho **Usuários** na página inicial do gestor.
+
+Arquivos principais:
+
+- `MAIN/backend/api/usuarios.php`
+- `MAIN/backend/api/sensores.php`
+- `MAIN/backend/migrar_sensores.php`
+- `MAIN/frontend/gestor/usuarios.html`
+- `MAIN/frontend/gestor/usuarios.css`
+- `MAIN/frontend/gestor/usuarios.js`
+- `MAIN/frontend/sensores/`
+- `tests/test_gestao_usuarios.php`
+- `tests/test_crud_sensores.php`
 

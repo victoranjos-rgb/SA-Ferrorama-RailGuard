@@ -10,6 +10,7 @@ $email = "sensor.$sufixo@railguard.test";
 $senha = 'TesteSeguro123!';
 $idUsuario = 0;
 $idSensor = 0;
+$idTrem = 0;
 $cookie = tempnam(sys_get_temp_dir(), 'rg_sensor_');
 
 function requisicaoSensor(string $metodo, string $url, ?array $dados, string $cookie): array
@@ -45,10 +46,16 @@ try {
     $idUsuario = $conexao->insert_id;
     requisicaoSensor('POST', "$base/login.php", ['email' => $email, 'senha' => $senha], $cookie);
 
-    $dados = ['codigo_sensor' => 'SEN-' . strtoupper($sufixo), 'tipo_sensor' => 'velocidade', 'modelo_sensor' => 'Modelo teste', 'id_rota' => '', 'localizacao' => 'Km 12', 'unidade_medida' => 'km/h', 'limite_alerta' => 80, 'status_sensor' => 'ativo'];
+    $prefixo = 'SNS-' . strtoupper($sufixo);
+    $stmt = $conexao->prepare("INSERT INTO trens(prefixo_trem,modelo_trem,tipo_combustivel,ano_fabricacao,capacidade_toneladas,velocidade_maxima_kmh,situacao_trem) VALUES(?,'Trem sensor','eletrico',2025,100,90,'ativo')");
+    $stmt->bind_param('s', $prefixo);
+    $stmt->execute();
+    $idTrem = $conexao->insert_id;
+
+    $dados = ['instalacao_sensor' => 'trem', 'codigo_sensor' => 'SEN-' . strtoupper($sufixo), 'tipo_sensor' => 'velocidade', 'modelo_sensor' => 'Modelo teste', 'id_rota' => '', 'id_trem' => $idTrem, 'localizacao' => 'Locomotiva — eixo dianteiro', 'unidade_medida' => 'km/h', 'limite_alerta' => 80, 'status_sensor' => 'ativo'];
     [$status, $resposta] = requisicaoSensor('POST', "$base/sensores.php", $dados, $cookie);
     $idSensor = (int) ($resposta['id_sensor'] ?? 0);
-    confirmarSensor($status === 201 && $idSensor > 0, 'criar sensor');
+    confirmarSensor($status === 201 && $idSensor > 0 && ($resposta['id_trem'] ?? 0) === $idTrem, 'criar sensor vinculado ao trem');
 
     [$status, $resposta] = requisicaoSensor('GET', "$base/sensores.php", null, $cookie);
     confirmarSensor($status === 200 && in_array($idSensor, array_column($resposta['sensores'] ?? [], 'id_sensor'), true), 'listar sensor');
@@ -62,6 +69,7 @@ try {
     $idSensor = 0;
 } finally {
     if ($idSensor) $conexao->query('DELETE FROM sensores WHERE id_sensor=' . $idSensor);
+    if ($idTrem) $conexao->query('DELETE FROM trens WHERE id_trem=' . $idTrem);
     if ($idUsuario) $conexao->query('DELETE FROM usuarios WHERE id_usuario=' . $idUsuario);
     @unlink($cookie);
 }

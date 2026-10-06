@@ -1,10 +1,14 @@
 // CRUD desenvolvido com auxílio de IA (OpenAI Codex), adaptado do repositório do professor.
 const API = '../../backend/api/sensores.php';
 const API_ROTAS = '../../backend/api/rotas.php';
+const API_TRENS = '../../backend/api/trens.php';
 const form = document.getElementById('form-sensor');
 const lista = document.getElementById('lista-sensores');
 const mensagem = document.getElementById('mensagem');
 const busca = document.getElementById('busca');
+const instalacao = document.getElementById('instalacao_sensor');
+const campoRota = document.getElementById('campo-rota');
+const campoTrem = document.getElementById('campo-trem');
 let sensores = [];
 
 async function respostaJson(resposta) {
@@ -22,13 +26,27 @@ function avisar(texto, tipo = '') {
     mensagem.dataset.tipo = tipo;
 }
 
+function atualizarCamposInstalacao(limpar = false) {
+    const noTrem = instalacao.value === 'trem';
+    campoTrem.hidden = !noTrem;
+    campoRota.hidden = noTrem;
+    document.getElementById('id_trem').required = noTrem;
+    document.getElementById('id_rota').required = !noTrem;
+    document.getElementById('localizacao').placeholder = noTrem ? 'Ex.: Locomotiva — eixo dianteiro' : 'Ex.: Km 12, próximo ao cruzamento norte';
+    if (limpar) {
+        document.getElementById(noTrem ? 'id_rota' : 'id_trem').value = '';
+    }
+}
+
 function abrirFormulario(sensor = null) {
     form.hidden = false;
     form.reset();
+    instalacao.value = sensor?.id_trem ? 'trem' : 'trilho';
+    atualizarCamposInstalacao(true);
     document.getElementById('id_sensor').value = sensor?.id_sensor || '';
     document.getElementById('titulo-formulario').textContent = sensor ? 'Editar sensor' : 'Cadastrar sensor';
     if (sensor) {
-        for (const campo of ['codigo_sensor', 'tipo_sensor', 'modelo_sensor', 'id_rota', 'localizacao', 'unidade_medida', 'limite_alerta', 'status_sensor']) document.getElementById(campo).value = sensor[campo] ?? '';
+        for (const campo of ['codigo_sensor', 'tipo_sensor', 'modelo_sensor', 'id_rota', 'id_trem', 'localizacao', 'unidade_medida', 'limite_alerta', 'status_sensor']) document.getElementById(campo).value = sensor[campo] ?? '';
     }
     form.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
@@ -45,16 +63,17 @@ function tipoLegivel(tipo) {
 
 function desenhar() {
     const termo = busca.value.trim().toLocaleLowerCase('pt-BR');
-    const filtrados = sensores.filter(sensor => [sensor.codigo_sensor, sensor.tipo_sensor, sensor.modelo_sensor, sensor.codigo_rota, sensor.nome_rota, sensor.localizacao].some(valor => String(valor || '').toLocaleLowerCase('pt-BR').includes(termo)));
+    const filtrados = sensores.filter(sensor => [sensor.codigo_sensor, sensor.tipo_sensor, sensor.modelo_sensor, sensor.codigo_rota, sensor.nome_rota, sensor.prefixo_trem, sensor.modelo_trem, sensor.localizacao].some(valor => String(valor || '').toLocaleLowerCase('pt-BR').includes(termo)));
     lista.replaceChildren();
     for (const sensor of filtrados) {
         const linha = document.createElement('tr');
         const leitura = sensor.ultima_leitura === null ? 'Sem leitura' : `${sensor.ultima_leitura} ${sensor.unidade_medida}`;
         const emAlerta = sensor.ultima_leitura !== null && sensor.limite_alerta !== null && Number(sensor.ultima_leitura) > Number(sensor.limite_alerta);
-        linha.innerHTML = '<td><span class="sensor-codigo"></span><span class="sensor-modelo"></span></td><td class="tipo"></td><td><span class="rota"></span><span class="local"></span></td><td class="leitura"></td><td><span class="status"></span></td><td class="acoes"><button class="editar" type="button">Editar</button><button class="excluir" type="button">Excluir</button></td>';
+        linha.innerHTML = '<td><span class="sensor-codigo"></span><span class="sensor-modelo"></span></td><td class="tipo"></td><td><span class="trem"></span></td><td><span class="rota"></span><span class="local"></span></td><td class="leitura"></td><td><span class="status"></span></td><td class="acoes"><button class="editar" type="button">Editar</button><button class="excluir" type="button">Excluir</button></td>';
         linha.querySelector('.sensor-codigo').textContent = sensor.codigo_sensor;
         linha.querySelector('.sensor-modelo').textContent = sensor.modelo_sensor;
         linha.querySelector('.tipo').textContent = tipoLegivel(sensor.tipo_sensor);
+        linha.querySelector('.trem').textContent = sensor.prefixo_trem ? `${sensor.prefixo_trem} — ${sensor.modelo_trem}` : 'Sem trem';
         linha.querySelector('.rota').textContent = sensor.codigo_rota || 'Sem rota';
         linha.querySelector('.local').textContent = sensor.localizacao;
         linha.querySelector('.leitura').textContent = leitura;
@@ -68,7 +87,7 @@ function desenhar() {
     }
     if (!filtrados.length) {
         const linha = document.createElement('tr');
-        linha.innerHTML = '<td colspan="6">Nenhum sensor encontrado.</td>';
+        linha.innerHTML = '<td colspan="7">Nenhum sensor encontrado.</td>';
         lista.appendChild(linha);
     }
 }
@@ -87,6 +106,17 @@ async function carregarRotas() {
         const opcao = document.createElement('option');
         opcao.value = rota.id_rota;
         opcao.textContent = `${rota.codigo_rota} — ${rota.nome_rota}`;
+        seletor.appendChild(opcao);
+    }
+}
+
+async function carregarTrens() {
+    const dados = await respostaJson(await fetch(API_TRENS, {credentials: 'same-origin'}));
+    const seletor = document.getElementById('id_trem');
+    for (const trem of dados.trens || []) {
+        const opcao = document.createElement('option');
+        opcao.value = trem.id_trem;
+        opcao.textContent = `${trem.prefixo_trem} — ${trem.modelo_trem}`;
         seletor.appendChild(opcao);
     }
 }
@@ -117,7 +147,8 @@ form.addEventListener('submit', async evento => {
     evento.preventDefault();
     const id = document.getElementById('id_sensor').value;
     const dados = {};
-    for (const campo of ['codigo_sensor', 'tipo_sensor', 'modelo_sensor', 'id_rota', 'localizacao', 'unidade_medida', 'limite_alerta', 'status_sensor']) dados[campo] = document.getElementById(campo).value;
+    dados.instalacao_sensor = instalacao.value;
+    for (const campo of ['codigo_sensor', 'tipo_sensor', 'modelo_sensor', 'id_rota', 'id_trem', 'localizacao', 'unidade_medida', 'limite_alerta', 'status_sensor']) dados[campo] = document.getElementById(campo).value;
     try {
         await respostaJson(await fetch(id ? `${API}?id=${id}` : API, {method: id ? 'PUT' : 'POST', headers: {'Content-Type': 'application/json'}, credentials: 'same-origin', body: JSON.stringify(dados)}));
         fecharFormulario();
@@ -131,4 +162,6 @@ document.getElementById('novo-sensor').addEventListener('click', () => abrirForm
 document.getElementById('fechar-formulario').addEventListener('click', fecharFormulario);
 document.getElementById('cancelar').addEventListener('click', fecharFormulario);
 busca.addEventListener('input', desenhar);
-Promise.all([carregarRotas(), carregar()]).catch(erro => avisar(erro.message, 'erro'));
+instalacao.addEventListener('change', () => atualizarCamposInstalacao(true));
+atualizarCamposInstalacao();
+Promise.all([carregarRotas(), carregarTrens(), carregar()]).catch(erro => avisar(erro.message, 'erro'));

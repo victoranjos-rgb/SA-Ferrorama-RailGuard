@@ -1,0 +1,192 @@
+/* Painéis de membro e maquinista desenvolvidos com auxílio de IA (OpenAI Codex). */
+@import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700;800&family=Inter:wght@400;600;700&display=swap");
+:root {
+  --fundo: #11161a;
+  --painel: #202832;
+  --cartao: #35404c;
+  --texto: #edf3ff;
+  --muted: #b9c7d8;
+  --borda: #596776;
+  --azul: #5791cf;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, #33475e55, transparent 30%), var(--fundo);
+  color: var(--texto);
+  font-family: Inter, Arial, sans-serif;
+}
+.aplicacao {
+  min-height: 100vh;
+  padding: clamp(14px, 4vw, 44px);
+  display: grid;
+  place-items: center;
+}
+.painel-cargo {
+  width: min(1120px, 100%);
+  padding: clamp(20px, 4vw, 44px);
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  background: linear-gradient(180deg, #27313ccc, #1d242ccc);
+  box-shadow: 0 18px 40px #0007;
+}
+.topo-cargo {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  align-items: center;
+  gap: 25px;
+}
+.topo-cargo img {
+  width: 130px;
+}
+.marca {
+  margin: 0;
+  color: #8eb9e6;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+.topo-cargo h1 {
+  margin: 3px 0;
+  font:
+    800 clamp(2.7rem, 6vw, 4.7rem)/1 "Abhaya Libre",
+    serif;
+}
+.topo-cargo p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+#sair {
+  padding: 10px 18px;
+  border: 1px solid #738294;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--texto);
+  font-weight: 700;
+  cursor: pointer;
+}
+.resumo-acesso {
+  display: flex;
+  gap: 16px;
+  margin: 28px 0;
+  padding: 16px 20px;
+  border: 1px solid #55799e;
+  border-radius: 14px;
+  background: #4b719522;
+}
+.resumo-acesso strong {
+  white-space: nowrap;
+}
+.resumo-acesso span {
+  color: var(--muted);
+}
+.menu-cargo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+.menu-cargo a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 90px;
+  padding: 16px;
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #3a4653, #303945);
+  color: var(--texto);
+  text-decoration: none;
+  box-shadow: 0 7px 13px #0003;
+  transition:
+    transform 0.18s,
+    border-color 0.18s;
+}
+.menu-cargo a:hover,
+.menu-cargo a:focus-visible {
+  transform: translateY(-3px);
+  border-color: #88c2ff;
+  outline: none;
+}
+.menu-cargo img {
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  border-radius: 13px;
+  background: #88c2ff1e;
+  object-fit: contain;
+}
+.menu-cargo span,
+.menu-cargo small {
+  display: block;
+}
+.menu-cargo b {
+  font:
+    700 1.55rem "Abhaya Libre",
+    serif;
+}
+.menu-cargo small {
+  margin-top: 4px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+@media (max-width: 800px) {
+  .topo-cargo {
+    grid-template-columns: 90px 1fr;
+  }
+  .topo-cargo img {
+    width: 90px;
+  }
+  .topo-cargo #sair {
+    grid-column: 1/-1;
+    width: 100%;
+  }
+  .menu-cargo {
+    grid-template-columns: 1fr;
+  }
+  .resumo-acesso {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+@media (max-width: 400px) {
+  .aplicacao {
+    padding: 0;
+  }
+  .painel-cargo {
+    min-height: 100vh;
+    padding: 16px 14px 76px;
+    border: 0;
+    border-radius: 0;
+  }
+  .topo-cargo {
+    grid-template-columns: 70px 1fr;
+    gap: 12px;
+  }
+  .topo-cargo img {
+    width: 70px;
+  }
+  .topo-cargo h1 {
+    font-size: 2.35rem;
+  }
+  .resumo-acesso {
+    margin: 20px 0;
+    padding: 13px;
+  }
+  .menu-cargo {
+    gap: 11px;
+  }
+  .menu-cargo a {
+    min-height: 76px;
+    padding: 12px;
+  }
+  .menu-cargo img {
+    width: 42px;
+    height: 42px;
+  }
+  .menu-cargo b {
+    font-size: 1.3rem;
+  }
+}
