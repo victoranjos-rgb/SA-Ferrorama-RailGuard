@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxilio de IA (OpenAI Codex).
 // Consulte o arquivo REGISTRO_IA.md na raiz do projeto.
 
 $caminhoConfiguracao = __DIR__ . '/config.php';

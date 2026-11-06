@@ -1,5 +1,5 @@
 <?php
-// CRUD desenvolvido com auxílio de IA (OpenAI Codex), conforme padrão do CRUD do professor.
+// CRUD conforme padrão do professor.
 require_once __DIR__ . '/../conexao.php';
 require_once __DIR__ . '/resposta.php';
 require_once __DIR__ . '/sessao_helper.php';

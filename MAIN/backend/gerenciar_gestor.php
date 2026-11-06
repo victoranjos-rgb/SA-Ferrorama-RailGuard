@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxílio de IA (OpenAI Codex).
 // Utilitário local para verificar ou definir um gestor inicial.
 
 if (PHP_SAPI !== 'cli') {

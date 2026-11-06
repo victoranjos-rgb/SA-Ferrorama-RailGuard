@@ -1,5 +1,4 @@
 <?php
-// CRUD de rotas desenvolvido com auxílio de IA (OpenAI Codex).
 require_once __DIR__ . '/../conexao.php';
 require_once __DIR__ . '/resposta.php';
 require_once __DIR__ . '/sessao_helper.php';

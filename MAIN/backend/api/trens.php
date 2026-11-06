@@ -1,6 +1,6 @@
 <?php
 
-// CRUD adaptado do repositório do professor com auxílio de IA (OpenAI Codex).
+// CRUD adaptado do repositório do professor.
 
 require_once __DIR__ . '/../conexao.php';
 require_once __DIR__ . '/resposta.php';

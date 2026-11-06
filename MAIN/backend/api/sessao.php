@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxilio de IA (OpenAI Codex).
 // Informa se existe um usuario autenticado na sessao atual.
 
 require_once __DIR__ . '/resposta.php';

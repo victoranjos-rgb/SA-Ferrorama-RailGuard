@@ -1,5 +1,4 @@
 const buttonCadastro = document.getElementById("buttonCadastro");
-// Integração com o backend desenvolvida com auxílio de IA (OpenAI Codex).
 
 const CHAVE_CADASTRO = 'railguard_cadastro_pendente';
 

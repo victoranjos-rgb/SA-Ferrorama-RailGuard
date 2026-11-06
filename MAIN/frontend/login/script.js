@@ -1,4 +1,3 @@
-// Integração com o backend desenvolvida com auxílio de IA (OpenAI Codex).
 
 const formularioLogin = document.getElementById('form-login');
 const mensagemLogin = document.getElementById('mensagem-login');

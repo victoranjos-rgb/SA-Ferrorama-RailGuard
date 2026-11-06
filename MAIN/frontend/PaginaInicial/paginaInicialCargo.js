@@ -1,4 +1,3 @@
-// Proteção das páginas por cargo desenvolvida com auxílio de IA (OpenAI Codex).
 const API = "../../backend/api/";
 const cargoEsperado = document.body.dataset.cargo;
 const paginas = {

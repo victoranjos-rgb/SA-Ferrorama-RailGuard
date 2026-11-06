@@ -1,5 +1,4 @@
 <?php
-// Migração desenvolvida com auxílio de IA (OpenAI Codex).
 if(PHP_SAPI!=='cli'){http_response_code(403);exit('Terminal.');}require_once __DIR__.'/conexao.php';$sql=<<<'SQL'
 CREATE TABLE IF NOT EXISTS manutencoes_trilhos (
  id_manutencao_trilho INT AUTO_INCREMENT PRIMARY KEY,id_rota INT NOT NULL,

@@ -1,4 +1,3 @@
--- Arquivo desenvolvido com auxilio de IA (OpenAI Codex).
 -- Consulte o arquivo REGISTRO_IA.md na raiz do projeto.
 
 CREATE TABLE IF NOT EXISTS usuarios (

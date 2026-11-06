@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxilio de IA (OpenAI Codex).
 // Importa a estrutura inicial do banco configurado em config.php.
 
 if (PHP_SAPI !== 'cli') {

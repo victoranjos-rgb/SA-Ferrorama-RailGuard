@@ -1,6 +1,5 @@
 <?php
 
-// Dados de demonstração adicionados com auxílio de IA (OpenAI Codex).
 // O prefixo é único; executar novamente apenas atualiza os mesmos cinco trens.
 
 if (PHP_SAPI !== 'cli') {

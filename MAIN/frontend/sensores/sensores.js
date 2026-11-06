@@ -1,4 +1,4 @@
-// CRUD desenvolvido com auxílio de IA (OpenAI Codex), adaptado do repositório do professor.
+// CRUD adaptado do repositório do professor.
 const API = '../../backend/api/sensores.php';
 const API_ROTAS = '../../backend/api/rotas.php';
 const API_TRENS = '../../backend/api/trens.php';

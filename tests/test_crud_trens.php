@@ -1,5 +1,4 @@
 <?php
-// Teste desenvolvido com auxílio de IA (OpenAI Codex).
 if (PHP_SAPI !== 'cli') exit("Execute pelo terminal.\n");
 require_once __DIR__ . '/../MAIN/backend/conexao.php';
 $base = 'http://127.0.0.1:8080/RailGuard/SA-Ferrorama-RailGuard/MAIN/backend/api';

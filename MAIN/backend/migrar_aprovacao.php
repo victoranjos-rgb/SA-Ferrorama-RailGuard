@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxílio de IA (OpenAI Codex).
 // Adiciona o fluxo de aprovação sem apagar os usuários existentes.
 
 if (PHP_SAPI !== 'cli') {

@@ -1,5 +1,4 @@
 <?php
-// Teste desenvolvido com auxílio de IA (OpenAI Codex).
 if(PHP_SAPI!=='cli')exit("Execute pelo terminal.\n");require_once __DIR__.'/../MAIN/backend/conexao.php';
 $base='http://127.0.0.1:8080/RailGuard/SA-Ferrorama-RailGuard/MAIN/backend/api';$x=bin2hex(random_bytes(4));$email="gestor.manut.$x@railguard.test";$senha='TesteSeguro123!';$uid=0;$tid=0;$mid=0;$cookie=tempnam(sys_get_temp_dir(),'rg_manut_');$resultados=[];
 function reqM(string $m,string $u,?array $d,string $cookie):array{$c=curl_init($u);$h=['Accept: application/json'];if($d!==null){$h[]='Content-Type: application/json';curl_setopt($c,CURLOPT_POSTFIELDS,json_encode($d));}curl_setopt_array($c,[CURLOPT_CUSTOMREQUEST=>$m,CURLOPT_HTTPHEADER=>$h,CURLOPT_RETURNTRANSFER=>true,CURLOPT_COOKIEJAR=>$cookie,CURLOPT_COOKIEFILE=>$cookie,CURLOPT_TIMEOUT=>30]);$b=curl_exec($c);if($b===false)throw new RuntimeException(curl_error($c));$s=curl_getinfo($c,CURLINFO_RESPONSE_CODE);curl_close($c);return ['status'=>$s,'dados'=>json_decode($b,true)];}function okM(bool $v,string $t,array &$r):void{if(!$v)throw new RuntimeException('FALHOU: '.$t);$r[]='OK: '.$t;}

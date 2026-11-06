@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxílio de IA (OpenAI Codex).
 
 if (PHP_SAPI !== 'cli') {
     http_response_code(403);

@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxilio de IA (OpenAI Codex).
 // Encerra a sessao do usuario autenticado.
 
 require_once __DIR__ . '/resposta.php';

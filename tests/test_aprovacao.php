@@ -1,6 +1,5 @@
 <?php
 
-// Teste desenvolvido com auxílio de IA (OpenAI Codex).
 // Executa o fluxo real de aprovação e remove todos os dados temporários ao final.
 
 if (PHP_SAPI !== 'cli') {

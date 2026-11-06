@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxílio de IA (OpenAI Codex).
 // Permite que um gestor aprove ou rejeite um cadastro pendente.
 
 require_once __DIR__ . '/../conexao.php';

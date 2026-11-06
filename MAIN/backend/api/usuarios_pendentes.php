@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxílio de IA (OpenAI Codex).
 // Lista cadastros que aguardam análise de um gestor.
 
 require_once __DIR__ . '/../conexao.php';

@@ -1,4 +1,3 @@
-// Gestão de usuários desenvolvida com auxílio de IA (OpenAI Codex).
 const API = '../../backend/api/usuarios.php';
 const lista = document.getElementById('lista-usuarios');
 const mensagem = document.getElementById('mensagem');

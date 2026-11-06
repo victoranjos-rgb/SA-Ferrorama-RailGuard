@@ -1,6 +1,5 @@
 <?php
 
-// Arquivo desenvolvido com auxilio de IA (OpenAI Codex).
 // Funcoes compartilhadas pelas rotas da API do RailGuard.
 
 function responderJson(int $status, array $dados): void

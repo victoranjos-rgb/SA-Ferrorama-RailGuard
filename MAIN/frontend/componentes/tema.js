@@ -1,4 +1,3 @@
-// Tema global desenvolvido com auxílio de IA (OpenAI Codex).
 (() => {
   if (window.RailGuardTema) return;
   const base = new URL('./', document.currentScript.src);
@@ -7,7 +6,7 @@
   if (!document.querySelector('link[data-tema-railguard]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = new URL('tema.css?v=20260929-1', base).href;
+    link.href = new URL('tema.css?v=20261106-1', base).href;
     link.dataset.temaRailguard = 'true';
     document.head.appendChild(link);
   }

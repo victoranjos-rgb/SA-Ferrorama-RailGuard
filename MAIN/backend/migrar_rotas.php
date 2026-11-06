@@ -1,5 +1,4 @@
 <?php
-// Migração desenvolvida com auxílio de IA (OpenAI Codex).
 if (PHP_SAPI !== 'cli') {
     http_response_code(403);
     exit('Execute somente pelo terminal.');

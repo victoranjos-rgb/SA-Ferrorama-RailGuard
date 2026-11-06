@@ -1,4 +1,3 @@
-// Integração desenvolvida com auxílio de IA (OpenAI Codex).
 
 const listaUsuarios = document.getElementById('lista-usuarios');
 const mensagem = document.getElementById('mensagem');

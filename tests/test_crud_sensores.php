@@ -1,6 +1,5 @@
 <?php
 
-// Teste desenvolvido com auxílio de IA (OpenAI Codex).
 if (PHP_SAPI !== 'cli') exit("Execute pelo terminal.\n");
 require_once __DIR__ . '/../MAIN/backend/conexao.php';
 
